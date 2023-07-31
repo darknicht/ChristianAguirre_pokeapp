@@ -4,7 +4,7 @@ import PokemonCard from '../components/PokemonCard';
 import SearchBar from '../components/SearchBar';
 import { getPokemons, getPokemonDetails } from '../services/PokemonService';
 import { typeColors } from '../utils/constants';
-import Icon from 'react-native-vector-icons/FontAwesome'; // Por ejemplo, aquí utilizaremos íconos de FontAwesome
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const HomeScreen = ({ navigation }) => {
   const [pokemons, setPokemons] = useState([]);
