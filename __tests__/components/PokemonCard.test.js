@@ -1,14 +1,19 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
-import PokemonCard from '../src/components/PokemonCard';
+import PokemonCard from '../components/PokemonCard';
 
-test('renders PokemonCard correctly', () => {
-  const pokemon = {
-    id: '1',
-    name: 'Bulbasaur',
-    image: 'https://example.com/bulbasaur.png',
-  };
-  const { getByText, getByTestId } = render(<PokemonCard pokemon={pokemon} />);
-  expect(getByText('Bulbasaur')).toBeTruthy();
-  expect(getByTestId('pokemon-image').props.source.uri).toBe('https://example.com/bulbasaur.png');
+describe('<PokemonCard />', () => {
+  it('renders the correct name and image', () => {
+    const pokemon = {
+      id: 1,
+      name: 'bulbasaur',
+      image: 'test-image-url',
+      type: ['grass'],
+    };
+    const { getByText, getByTestId } = render(<PokemonCard pokemon={pokemon} />);
+
+    expect(getByText('#1')).toBeTruthy();
+    expect(getByText('bulbasaur')).toBeTruthy();
+    expect(getByTestId('pokemon-image').props.source.uri).toBe('test-image-url');
+  });
 });
